@@ -1,0 +1,235 @@
+@charset "UTF-8";
+
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body{
+    background: #ffffff;
+}
+
+/* 汚物は消毒だｧーー！！ */
+.check-toggle{
+    display: none;
+}
+
+.toggle__item{
+    padding: 5px 10px;
+}
+
+.toggle__item::after{
+    clear: both;
+    display: block;
+    content: "";
+}
+
+.toggle__label{
+    float: left;
+    line-height: 32px;
+}
+
+.toggle__button{
+    float: left;
+    margin-left: 10px;
+}
+
+/* 座標指定用の親箱 */
+.toggle__button{
+    position: relative;
+    width: 51px;
+    height: 31px;
+}
+
+.toggle__button label,
+.toggle__button i{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    display: block;
+    background: #ffffff;
+}
+
+.toggle__button label{
+    width: 51px;
+    height: 32px;
+    border-radius: 32px;
+    border: 2px solid #e5e5e5;
+    transition: all 0.30s ease;
+}
+
+.toggle__button i{
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 28px;
+    height: 28px;
+    border-radius: 28px;
+    box-shadow: 0 0 1px 0 rgba(0,0,0, 0.25),
+    0 3px 3px 0 rgba(0,0,0, 0.15);
+    background: #ffffff;
+    transition: all 0.3s cubic-bezier(0.275, -0.450, 0.725, 1.450);
+}
+
+/* すーちゃん最高！ http://jsdo.it/xl1/a6OR */
+.toggle__button label:active {
+    min-width: 1px; /* redraw */
+}
+
+/*
+ボタン掴んでいる間幅を広げる
+*/
+input#elem1:active ~ .toggle [for="elem1"] i,
+input#elem2:active ~ .toggle [for="elem2"] i,
+input#elem3:active ~ .toggle [for="elem3"] i{
+    width: 35px;
+}
+
+/*
+:active と :checked の時の背景色を変える。（背景と言っているけど実態は border-color ）
+*/
+input#elem1:active  ~ .toggle [for="elem1"],
+input#elem1:checked ~ .toggle [for="elem1"],
+input#elem2:active  ~ .toggle [for="elem2"],
+input#elem2:checked ~ .toggle [for="elem2"],
+input#elem3:active  ~ .toggle [for="elem3"],
+input#elem3:checked ~ .toggle [for="elem3"]{
+    border: 16px solid #4cd964;
+}
+
+/*
+座標ずらす
+*/
+input#elem1:checked ~ .toggle [for="elem1"] i,
+input#elem2:checked ~ .toggle [for="elem2"] i,
+input#elem3:checked ~ .toggle [for="elem3"] i{
+    left: 21px;
+}
+
+/*
+チェック済みのボタン掴んでも背景と座標
+*/
+input#elem1:checked:active ~ .toggle [for="elem1"],
+input#elem2:checked:active ~ .toggle [for="elem2"],
+input#elem3:checked:active ~ .toggle [for="elem3"]{
+    border: 16px solid #e5e5e5;
+}
+input#elem1:checked:active ~ .toggle [for="elem1"] i,
+input#elem2:checked:active ~ .toggle [for="elem2"] i,
+input#elem3:checked:active ~ .toggle [for="elem3"] i{
+    left: 14px;
+}
+
+/* 表示部 */
+.view{
+    margin-top: 15px;
+    padding: 15px;
+    background-color: #e5e5e5;
+}
+
+.view [id^="target"]{
+    display:none;
+    line-height: 1.4;
+}
+
+input#elem1:checked ~ .view #target1,
+input#elem2:checked ~ .view #target2,
+input#elem3:checked ~ .view #target3{
+    display: block;
+    opacity: 0;
+    height: 0;
+    -webkit-animation-name: viewToggle, marking;
+    -webkit-animation-duration: 0.39s, 1.17s;
+    -webkit-animation-timing-function: linear, linear;
+    -webkit-animation-iteration-count: 1, 1;
+    -webkit-animation-fill-mode: forwards, forwards;
+
+    animation-name: viewToggle, marking;
+    animation-duration: 0.39s, 1.17s;
+    animation-timing-function: linear, linear;
+    animation-iteration-count: 1, 1;
+    animation-fill-mode: forwards, forwards;
+}
+
+@-webkit-keyframes viewToggle {
+  0% {
+    opacity: 0;
+    height: 0;
+  }
+
+  70% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+    height: 1.4em;
+  }
+}
+
+@keyframes viewToggle {
+  0% {
+    opacity: 0;
+    height: 0;
+  }
+
+  70% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+    height: 1.4em;
+  }
+}
+
+@-webkit-keyframes marking {
+  0% {
+    color: rgb(0,0,0);
+  }
+
+  33% {
+    color: rgb(0,0,0);
+  }
+
+  50%{
+    color: rgb(255,0,0);
+  }
+
+  80%{
+    color: rgb(255,0,0);
+  }
+
+  100% {
+    color: rgb(0,0,0);
+  }
+}
+
+@keyframes marking {
+  0% {
+    color: rgb(0,0,0);
+  }
+
+  33% {
+    color: rgb(0,0,0);
+  }
+
+  50%{
+    color: rgb(255,0,0);
+  }
+
+  80%{
+    color: rgb(255,0,0);
+  }
+
+  100% {
+    color: rgb(0,0,0);
+  }
+}
+
+input#elem1:checked:active ~ .view #target1,
+input#elem2:checked:active ~ .view #target2,
+input#elem3:checked:active ~ .view #target3{
+    color: red;
+}

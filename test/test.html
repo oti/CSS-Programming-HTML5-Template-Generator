@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+
+<title>iOS 7 toggle UI test</title>
+
+<link rel="stylesheet" type="text/css" href="test.css" media="all">
+
+</head>
+<body>
+<input type="checkbox" id="elem1" class="check-toggle" name="" value="">
+<input type="checkbox" id="elem2" class="check-toggle" name="" value="">
+<input type="checkbox" id="elem3" class="check-toggle" name="" value="">
+
+<div class="toggle">
+    <div class="toggle__item">
+        <div class="toggle__label">
+            <p>設定１</p>
+        </div>
+        <div class="toggle__button">
+            <label for="elem1"><i></i></label>
+        </div>
+    </div>
+    <div class="toggle__item">
+        <div class="toggle__label">
+            <p>設定２</p>
+        </div>
+        <div class="toggle__button">
+            <label for="elem2"><i></i></label>
+        </div>
+    </div>
+    <div class="toggle__item">
+        <div class="toggle__label">
+            <p>設定３</p>
+        </div>
+        <div class="toggle__button">
+            <label for="elem3"><i></i></label>
+        </div>
+    </div>
+</div>
+
+<div class="view">
+<p class="view__item" id="target1">&lt;meta chaset="UTF-8"&gt;</p>
+<p class="view__item" id="target2">&lt;link rel="stylesheet" href="your/path/style.css" media="screen"&gt;</p>
+<p class="view__item" id="target3">&lt;script src="your/path/script.js"&gt;&lt;/script&gt;</p>
+</div>
+
+</body>
+</html>
