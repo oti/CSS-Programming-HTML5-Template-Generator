@@ -15,35 +15,34 @@ body > input{
     display: none;
 }
 
-.toggle__item{
+.generate-select{
+    display: block;
     padding: 5px 10px;
 }
 
-.toggle__item::after{
+.generate-select::after{
     clear: both;
     display: block;
     content: "";
 }
 
-.toggle__label{
+.generate-select p{
     float: left;
     line-height: 32px;
 }
 
-.toggle__button{
+.toggle{
     float: left;
     margin-left: 10px;
 }
 
 /* 座標指定用の親箱 */
-.toggle__button{
+.toggle{
     position: relative;
-    width: 51px;
-    height: 31px;
 }
 
-.toggle__button label,
-.toggle__button i{
+.toggle_mark,
+.toggle_mark i{
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -51,7 +50,7 @@ body > input{
     background: #ffffff;
 }
 
-.toggle__button label{
+.toggle_mark{
     width: 51px;
     height: 32px;
     border-radius: 32px;
@@ -59,7 +58,7 @@ body > input{
     transition: all 0.30s ease;
 }
 
-.toggle__button i{
+.toggle_mark i{
     position: absolute;
     top: 2px;
     left: 2px;
@@ -73,51 +72,51 @@ body > input{
 }
 
 /* すーちゃん最高！ http://jsdo.it/xl1/a6OR */
-.toggle__button label:active {
+label:active .toggle_mark{
     min-width: 1px; /* redraw */
 }
 
 /*
 ボタン掴んでいる間幅を広げる
 */
-input#elem1:active ~ .toggle [for="elem1"] i,
-input#elem2:active ~ .toggle [for="elem2"] i,
-input#elem3:active ~ .toggle [for="elem3"] i{
+input#elem1:active ~ [for="elem1"] .toggle_mark i,
+input#elem2:active ~ [for="elem2"] .toggle_mark i,
+input#elem3:active ~ [for="elem3"] .toggle_mark i{
     width: 35px;
 }
 
 /*
 :active と :checked の時の背景色を変える。（背景と言っているけど実態は border-color ）
 */
-input#elem1:active  ~ .toggle [for="elem1"],
-input#elem1:checked ~ .toggle [for="elem1"],
-input#elem2:active  ~ .toggle [for="elem2"],
-input#elem2:checked ~ .toggle [for="elem2"],
-input#elem3:active  ~ .toggle [for="elem3"],
-input#elem3:checked ~ .toggle [for="elem3"]{
+input#elem1:active  ~ [for="elem1"] .toggle_mark,
+input#elem1:checked ~ [for="elem1"] .toggle_mark,
+input#elem2:active  ~ [for="elem2"] .toggle_mark,
+input#elem2:checked ~ [for="elem2"] .toggle_mark,
+input#elem3:active  ~ [for="elem3"] .toggle_mark,
+input#elem3:checked ~ [for="elem3"] .toggle_mark{
     border: 16px solid #4cd964;
 }
 
 /*
 座標ずらす
 */
-input#elem1:checked ~ .toggle [for="elem1"] i,
-input#elem2:checked ~ .toggle [for="elem2"] i,
-input#elem3:checked ~ .toggle [for="elem3"] i{
+input#elem1:checked ~ [for="elem1"] .toggle_mark i,
+input#elem2:checked ~ [for="elem2"] .toggle_mark i,
+input#elem3:checked ~ [for="elem3"] .toggle_mark i{
     left: 21px;
 }
 
 /*
 チェック済みのボタン掴んでも背景と座標
 */
-input#elem1:checked:active ~ .toggle [for="elem1"],
-input#elem2:checked:active ~ .toggle [for="elem2"],
-input#elem3:checked:active ~ .toggle [for="elem3"]{
+input#elem1:checked:active ~ [for="elem1"] .toggle_mark,
+input#elem2:checked:active ~ [for="elem2"] .toggle_mark,
+input#elem3:checked:active ~ [for="elem3"] .toggle_mark{
     border: 16px solid #e5e5e5;
 }
-input#elem1:checked:active ~ .toggle [for="elem1"] i,
-input#elem2:checked:active ~ .toggle [for="elem2"] i,
-input#elem3:checked:active ~ .toggle [for="elem3"] i{
+input#elem1:checked:active ~ [for="elem1"] .toggle_mark i,
+input#elem2:checked:active ~ [for="elem2"] .toggle_mark i,
+input#elem3:checked:active ~ [for="elem3"] .toggle_mark i{
     left: 14px;
 }
 
